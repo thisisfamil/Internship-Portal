@@ -1,14 +1,19 @@
 import psycopg2
 from psycopg2 import sql
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 
 def get_db():
     # mydb = psycopg2.connect(
-    #     host="localhost",
-    #     port= "5432",
-    #     database="postgres",
-    #     user="postgres",
-    #     password="Famil20070505"
+    #   host=os.getenv("HOST"),
+    #   port=os.getenv("PORT"),
+    #   database=os.getenv("DATABASE"),
+    #   user=os.getenv("USER"),
+    #   password=os.getenv("PASSWORD")
     # )
     # mydb.autocommit = True
     # mycursor = mydb.cursor()
@@ -17,11 +22,11 @@ def get_db():
     # mydb.close()
 
     mydb = psycopg2.connect(
-        host="localhost",
-        port="5432",
-        database="miniinternportal",
-        user="postgres",
-        password="Famil20070505"
+        host=os.getenv("HOST"),
+        port=os.getenv("PORT"),
+        database=os.getenv("DATABASE"),
+        user=os.getenv("USER"),
+        password=os.getenv("PASSWORD")
     )
     
     mycursor_user = mydb.cursor()
